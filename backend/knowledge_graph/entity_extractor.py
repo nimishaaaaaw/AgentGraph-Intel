@@ -9,6 +9,11 @@ from typing import List, Dict, Any
 
 from utils.logger import get_logger
 
+try:
+    from llm.llm_factory import LLMFactory
+except Exception:  # pragma: no cover
+    LLMFactory = None  # type: ignore[assignment]
+
 logger = get_logger(__name__)
 
 _ENTITY_TYPES = [
@@ -56,8 +61,6 @@ class EntityExtractor:
     # ------------------------------------------------------------------
 
     def _llm_extract(self, text: str) -> List[Dict[str, Any]]:
-        from llm.llm_factory import LLMFactory  # deferred
-
         llm = LLMFactory.get_llm()
         prompt = _EXTRACT_PROMPT.format(
             types=", ".join(_ENTITY_TYPES), text=text

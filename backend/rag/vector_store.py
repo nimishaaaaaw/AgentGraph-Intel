@@ -5,7 +5,6 @@ Compatible with chromadb==0.4.22.
 """
 from typing import List, Dict, Any, Optional
 
-from config import settings
 from utils.logger import get_logger
 
 logger = get_logger(__name__)
@@ -121,6 +120,7 @@ class VectorStore:
         if VectorStore._client is not None:
             return
         import chromadb  # noqa
+        from config import settings
 
         logger.info(
             "Initialising ChromaDB at %s", settings.chroma_persist_dir

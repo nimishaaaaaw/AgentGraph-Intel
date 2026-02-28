@@ -5,6 +5,11 @@ from typing import List, Dict, Any, Optional
 
 from utils.logger import get_logger
 
+try:
+    from knowledge_graph.neo4j_client import Neo4jClient
+except Exception:  # pragma: no cover
+    Neo4jClient = None  # type: ignore[assignment,misc]
+
 logger = get_logger(__name__)
 
 
@@ -13,8 +18,6 @@ class GraphQuery:
 
     def __init__(self) -> None:
         try:
-            from knowledge_graph.neo4j_client import Neo4jClient
-
             self._client = Neo4jClient()
             self._available = self._client.health_check()
         except Exception as exc:
