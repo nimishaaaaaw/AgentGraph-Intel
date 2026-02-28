@@ -12,7 +12,6 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from typing import Optional
 
-from config import settings
 from utils.logger import get_logger
 
 logger = get_logger(__name__)
@@ -152,6 +151,8 @@ class LLMFactory:
 
     @classmethod
     def _create(cls) -> BaseLLM:
+        from config import settings  # deferred to avoid import-time failures
+
         provider = settings.llm_provider.lower()
 
         if provider == "gemini" and settings.gemini_api_key:
