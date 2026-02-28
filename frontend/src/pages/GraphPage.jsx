@@ -33,11 +33,11 @@ export default function GraphPage() {
               <div className="flex items-center gap-4 text-xs text-slate-500">
                 <span className="flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-blue-400 inline-block" />
-                  {stats.node_count || nodes.length} nodes
+                  {stats.total_entities || nodes.length} nodes
                 </span>
                 <span className="flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block" />
-                  {stats.relationship_count || links.length} edges
+                  {stats.total_relationships || links.length} edges
                 </span>
               </div>
             )}

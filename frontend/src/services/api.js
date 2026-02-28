@@ -28,7 +28,7 @@ api.interceptors.response.use(
  * @returns {Promise<Object>} Response with answer, sources, agent_trail
  */
 export const sendMessage = (query) =>
-  api.post('/chat', { query }).then((r) => r.data)
+  api.post('/chat', { message: query }).then((r) => r.data)
 
 /**
  * Upload a document for processing.
@@ -63,7 +63,7 @@ export const deleteDocument = (docId) =>
  * @returns {Promise<Array>} List of node objects
  */
 export const getGraphNodes = () =>
-  api.get('/graph/nodes').then((r) => r.data)
+  api.get('/graph/entities').then((r) => r.data)
 
 /**
  * Fetch all graph relationships for visualization.

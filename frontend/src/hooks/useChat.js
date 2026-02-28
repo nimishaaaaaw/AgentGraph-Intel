@@ -40,9 +40,9 @@ export function useChat() {
       const data = await sendMessage(query)
       addMessage({
         role: 'assistant',
-        content: data.response,
+        content: data.answer,
         sources: data.sources || [],
-        agent_trail: data.agent_trail || [],
+        agent_trail: data.steps_taken || [],
         entities: data.entities || [],
       })
     } catch (err) {

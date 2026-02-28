@@ -99,10 +99,10 @@ export default function MessageBubble({ message }) {
                     className="text-xs bg-slate-800/80 border border-slate-700 rounded-lg px-3 py-2"
                   >
                     <span className="text-slate-400 font-medium">
-                      [{i + 1}] {source.document || source.title || 'Source'}
+                      [{i + 1}] {source.filename || source.source || 'Source'}
                     </span>
-                    {source.chunk && (
-                      <p className="text-slate-500 mt-0.5 line-clamp-2">{source.chunk}</p>
+                    {source.content && (
+                      <p className="text-slate-500 mt-0.5 line-clamp-2">{source.content}</p>
                     )}
                   </div>
                 ))}
