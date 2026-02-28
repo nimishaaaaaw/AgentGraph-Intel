@@ -42,7 +42,7 @@ class TestEntityExtractor:
         assert extractor.extract("") == []
         assert extractor.extract("   ") == []
 
-    def test_extract_fallback_on_llm_failure(self, sample_text):
+    def test_extract_fallback_on_llm_failure(self):
         from knowledge_graph.entity_extractor import EntityExtractor
 
         mock_llm = MagicMock()
@@ -53,7 +53,7 @@ class TestEntityExtractor:
             return_value=mock_llm,
         ):
             extractor = EntityExtractor()
-            result = extractor.extract(sample_text)
+            result = extractor.extract("LangGraph is an orchestration framework for AI agents.")
 
         # Fallback regex extractor should still return something
         assert isinstance(result, list)
