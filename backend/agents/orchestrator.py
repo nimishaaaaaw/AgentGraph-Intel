@@ -1,7 +1,7 @@
 """
 LangGraph orchestrator — wires all agents into a stateful directed graph.
 
-Compatible with langgraph==0.0.26 (StateGraph API).
+Compatible with langgraph>=0.2.0 (StateGraph API).
 """
 from langgraph.graph import StateGraph, END
 
