@@ -115,6 +115,8 @@ class DocumentService:
         metadatas = []
         for c in chunks:
             meta = dict(c.metadata)
+            meta["filename"] = source
+            meta["source"] = source
             if description:
                 meta["description"] = description
             metadatas.append(meta)

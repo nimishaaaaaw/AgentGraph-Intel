@@ -13,7 +13,7 @@ class Settings(BaseSettings):
     groq_api_key: str = Field(default="", env="GROQ_API_KEY")
 
     # Neo4j Configuration
-    neo4j_uri: str = Field(default="bolt://localhost:7687", env="NEO4J_URI")
+    neo4j_uri: str = Field(default="bolt://neo4j:7687", env="NEO4J_URI")
     neo4j_username: str = Field(default="neo4j", env="NEO4J_USERNAME")
     neo4j_password: str = Field(default="password", env="NEO4J_PASSWORD")
 

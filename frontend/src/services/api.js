@@ -40,6 +40,7 @@ export const uploadDocument = (file) => {
   formData.append('file', file)
   return api.post('/documents/upload', formData, {
     headers: { 'Content-Type': 'multipart/form-data' },
+    timeout: 300000,
   }).then((r) => r.data)
 }
 
